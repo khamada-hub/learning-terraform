@@ -1,11 +1,10 @@
-#data "aws_ami" "app_ami" {
-data "aws_ami" "TERRAFORM" {
+data "aws_ami" "app_ami" {
   most_recent = true
 
- # filter {
- #   name   = "name"
- #   values = ["bitnami-tomcat-*-x86_64-hvm-ebs-nami"]
- # }
+ filter {
+   name   = "name"
+   values = ["bitnami-tomcat-*-x86_64-hvm-ebs-nami"]
+ }
 
   filter {
     name   = "virtualization-type"
@@ -16,9 +15,8 @@ data "aws_ami" "TERRAFORM" {
 }
 
 resource "aws_instance" "web" {
-  #　ami           = data.aws_ami.app_ami.id
-　　ami           = data.aws_TERRAFORM.id
-  instance_type = "t3.micro"
+ 　ami           = data.aws_ami.app_ami.id
+　 instance_type = "t3.micro"
 
   tags = {
     Name = "HelloWorld"
