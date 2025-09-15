@@ -17,7 +17,7 @@ data "aws_ami" "TERRAFORM" {
 
 resource "aws_instance" "web" {
   #　ami           = data.aws_ami.app_ami.id
-　　ami           = ami-043af60b51e92ff6a
+　　ami           = data.aws_TERRAFORM.id
   instance_type = "t3.micro"
 
   tags = {
